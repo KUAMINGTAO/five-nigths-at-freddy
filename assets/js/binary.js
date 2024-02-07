@@ -1,4 +1,4 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.47/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.2","target":"arcade","targetVersion":"1.12.47","repo":"kuamingtao/five-nigths-at-freddy"}
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.47/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.3","target":"arcade","targetVersion":"1.12.47","repo":"kuamingtao/five-nigths-at-freddy"}
 // total=2008137 new=8.36% cached=86.71% other=4.93%
 (function (ectx) {
 'use strict';
@@ -573,7 +573,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P367378(s) {
+function _main___P367423(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1379,13 +1379,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P367378.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P367378.continuations = [  ]
+_main___P367423.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P367423.continuations = [  ]
 
-function _main___P367378_mk(s) {
+function _main___P367423_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P367378, depth: s.depth + 1,
+        parent: s, fn: _main___P367423, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -67200,5 +67200,5 @@ const sprites_BaseSpriteSayRenderer__C343748_VT = mkVTable({
 
 const breakpoints = setupDebugger(1, ["transparency16___345840","tile2___345842","tile3___345843","tile4___345844","tile5___345845","tile6___345846","tile7___345847","tile8___345848","tile9___345849","tile11___345851","tile12___345852","tile13___345853","tile14___345854","tile15___345855","tile16___345856","tile17___345857","tile18___345858","tile19___345859","tile20___345860","tile21___345861","tile1___345841","tile22___345863","tile24___345864","tile25___345865","tile26___345866","tile10___345850","tile23___345862","MIKE___345822","HP___345823","HP1___345824","HP2___345825","FREDDY___345826","CCTV___345828","LINE___345829","CHICA___345830","DOOR___345831","DOOR_1___345832","DOOR_2___345833","DOOR_3___345834","LINE_1___345835","BONNIE___345836","FOXY___345837","POWER___345838","CCTV_CHANGE___345827","PUT___345821","PUT_2___345820"])
 
-return _main___P367378
+return _main___P367423
 })
