@@ -1,6 +1,9 @@
 info.onCountdownEnd(function () {
     game.gameOver(true)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile20`, function (sprite, location) {
+	
+})
 let PUT_2 = 0
 let PUT = 0
 let MIKE = sprites.create(img`
@@ -269,8 +272,27 @@ let BONNIE = sprites.create(img`
     2 2 2 a a f f a a f . . 
     `, SpriteKind.Player)
 tiles.placeOnRandomTile(BONNIE, assets.tile`myTile19`)
+let FOXY = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
+tiles.placeOnRandomTile(FOXY, assets.tile`myTile8`)
 let POWER = 100
-info.startCountdown(100)
+info.startCountdown(500)
 forever(function () {
     if (MIKE.tileKindAt(TileDirection.Top, assets.tile`myTile0`)) {
         MIKE.y += 10
@@ -306,6 +328,11 @@ forever(function () {
         CHICA.follow(LINE, 0)
         CHICA.follow(MIKE, 50)
     }
+    if (FOXY.overlapsWith(LINE)) {
+        tiles.placeOnRandomTile(LINE, assets.tile`myTile3`)
+        FOXY.follow(LINE, 0)
+        FOXY.follow(MIKE, 120)
+    }
     if (CHICA.overlapsWith(MIKE)) {
         game.reset()
     }
@@ -313,6 +340,9 @@ forever(function () {
         game.reset()
     }
     if (BONNIE.overlapsWith(MIKE)) {
+        game.reset()
+    }
+    if (FOXY.overlapsWith(MIKE)) {
         game.reset()
     }
     if (POWER == 0) {
@@ -325,9 +355,78 @@ forever(function () {
 forever(function () {
     pause(10000)
     pause(5000)
-    CHICA.follow(LINE)
+    CHICA.follow(LINE, 100)
     pause(7000)
-    BONNIE.follow(LINE_1)
+    BONNIE.follow(LINE_1, 100)
+})
+forever(function () {
+    pause(10000)
+    pause(10000)
+    pause(10000)
+    pause(10000)
+    animation.runImageAnimation(
+    FOXY,
+    [img`
+        2 2 2 2 . . . . . . 2 2 2 2 
+        2 e e 2 . 2 . 2 . . 2 f f 2 
+        2 e 2 . 2 2 2 2 2 2 . 2 f 2 
+        2 2 . b 2 2 2 2 2 2 b . 2 2 
+        . . . f f f f 4 4 2 2 . . . 
+        . . . 2 f f 2 5 1 2 2 . . . 
+        . . . 2 4 4 f f 4 4 2 . . . 
+        . . 2 2 4 4 4 4 4 4 2 2 2 . 
+        . 2 2 2 f 1 5 1 f 1 2 2 2 2 
+        . . . . 2 2 2 2 2 2 . . . . 
+        . . f 2 2 4 4 f f 2 2 2 . . 
+        . f 2 f 2 4 f f 4 2 f 2 f . 
+        . 2 f f 2 4 4 4 4 2 f 2 2 . 
+        . b b f 2 f f 4 4 2 f f 2 . 
+        . b . . e e e e e e . . . . 
+        . b b . b b . . b b . . . . 
+        `],
+    500,
+    false
+    )
+    tiles.placeOnRandomTile(FOXY, assets.tile`myTile24`)
+    FOXY.follow(LINE, 80)
+})
+forever(function () {
+    if (FOXY.overlapsWith(DOOR_1)) {
+        tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
+        FOXY.follow(LINE, 0)
+        FOXY.follow(MIKE, 0)
+        tiles.placeOnRandomTile(FOXY, assets.tile`myTile24`)
+    }
+    if (FOXY.overlapsWith(DOOR)) {
+        tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
+        FOXY.follow(LINE, 0)
+        FOXY.follow(MIKE, 0)
+        tiles.placeOnRandomTile(FOXY, assets.tile`myTile24`)
+    }
+    if (CHICA.overlapsWith(DOOR_1)) {
+        tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
+        CHICA.follow(LINE, 0)
+        CHICA.follow(MIKE, 0)
+        tiles.placeOnRandomTile(CHICA, assets.tile`myTile17`)
+    }
+    if (CHICA.overlapsWith(DOOR)) {
+        tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
+        CHICA.follow(LINE, 0)
+        CHICA.follow(MIKE, 0)
+        tiles.placeOnRandomTile(CHICA, assets.tile`myTile17`)
+    }
+    if (BONNIE.overlapsWith(DOOR_2)) {
+        tiles.placeOnRandomTile(LINE_1, assets.tile`myTile18`)
+        BONNIE.follow(LINE_1, 0)
+        BONNIE.follow(MIKE, 0)
+        tiles.placeOnRandomTile(BONNIE, assets.tile`myTile19`)
+    }
+    if (BONNIE.overlapsWith(DOOR_3)) {
+        tiles.placeOnRandomTile(LINE_1, assets.tile`myTile18`)
+        BONNIE.follow(LINE_1, 0)
+        BONNIE.follow(MIKE, 0)
+        tiles.placeOnRandomTile(BONNIE, assets.tile`myTile19`)
+    }
 })
 forever(function () {
     if (MIKE.tileKindAt(TileDirection.Center, assets.tile`myTile3`)) {
@@ -420,31 +519,5 @@ forever(function () {
                 PUT_2 = 0
             }
         }
-    }
-})
-forever(function () {
-    if (CHICA.overlapsWith(DOOR_1)) {
-        tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
-        CHICA.follow(LINE, 0)
-        CHICA.follow(MIKE, 0)
-        tiles.placeOnRandomTile(CHICA, assets.tile`myTile17`)
-    }
-    if (CHICA.overlapsWith(DOOR)) {
-        tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
-        CHICA.follow(LINE, 0)
-        CHICA.follow(MIKE, 0)
-        tiles.placeOnRandomTile(CHICA, assets.tile`myTile17`)
-    }
-    if (BONNIE.overlapsWith(DOOR_2)) {
-        tiles.placeOnRandomTile(LINE_1, assets.tile`myTile18`)
-        BONNIE.follow(LINE_1, 0)
-        BONNIE.follow(MIKE, 0)
-        tiles.placeOnRandomTile(BONNIE, assets.tile`myTile19`)
-    }
-    if (BONNIE.overlapsWith(DOOR_3)) {
-        tiles.placeOnRandomTile(LINE_1, assets.tile`myTile18`)
-        BONNIE.follow(LINE_1, 0)
-        BONNIE.follow(MIKE, 0)
-        tiles.placeOnRandomTile(BONNIE, assets.tile`myTile19`)
     }
 })
