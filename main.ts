@@ -4,9 +4,135 @@ info.onCountdownEnd(function () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile20`, function (sprite, location) {
 	
 })
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    FOXY,
+    [img`
+        . . . . . 2 2 2 . . . . 2 2 2 . 
+        . . . . . 2 e 2 . . . . 2 e 2 . 
+        . . . . . 2 b . 2 . 2 . . b 2 . 
+        . . . . . . 2 2 2 2 2 2 2 2 . . 
+        . . . . . e b b f 2 2 1 1 2 . . 
+        . . . . e e b b 1 2 2 1 5 2 . . 
+        . . . e e . b b 1 f f 2 f 2 . . 
+        . . e e . 2 2 f 4 4 4 4 f 2 2 . 
+        . e e . 2 2 2 f 4 4 4 4 f 2 2 2 
+        . . . . . . 2 2 2 2 2 2 2 2 . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    false
+    )
+    animation.runImageAnimation(
+    BONNIE,
+    [img`
+        . . . . . a a a a . . a a a . . 
+        . . . . . a c c a . . a c a . . 
+        . . . . . a a c a . . a c a . . 
+        . . . . . . a a a a a a a a . . 
+        . . . . . e b b f a a 1 1 a . . 
+        . . . . e e b b 1 a a 1 2 a . . 
+        . . . e e . b b 1 f f c f a . . 
+        . . e e . . c f c c c c f c . . 
+        . e e . . . c f c c c c f c . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    false
+    )
+    animation.runImageAnimation(
+    CHICA,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 5 5 5 5 5 5 . . . 
+        . . . . . . b b f 5 5 1 1 5 . . 
+        . . . . . e b b 1 5 5 1 2 5 . . 
+        . . . . e e b b 1 5 f 5 5 5 . . 
+        . . . e e . 5 5 4 f f f 5 5 . . 
+        . . e e . . 5 4 4 4 5 5 5 5 . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    false
+    )
+    animation.runImageAnimation(
+    FREDDY,
+    [img`
+        . . e e e e e e e b b b . . . . 
+        . . e e e e e e e b b b . . . . 
+        . . . . . 2 . . . b b b . e e . 
+        . . . . . 8 2 e e b b b e 4 e . 
+        . . . . 8 . e f b e e 1 1 e . . 
+        . . . . . . e f b e e 1 2 e . . 
+        . . . . . . e 1 1 f f 4 f f f . 
+        . . . . . . 4 2 1 4 4 4 f f f . 
+        . . . . . . 4 4 4 4 4 f f f f f 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    false
+    )
+    animation.runImageAnimation(
+    MIKE,
+    [img`
+        f f f f f f f f f f f f 
+        f a a a a a a a a a a f 
+        f a a a a 5 5 a a a a f 
+        f a a a a a a a a a a f 
+        f f f f f f f f f f f f 
+        f f f a a a a c c f f f 
+        f a c a a a a a a c a f 
+        f a a c c a a c c a a f 
+        f c a a a a a a a a c f 
+        . f c a a c c a a c f . 
+        . f f c a a a a c f f . 
+        c c f a c c c c a f c c 
+        c c f c c c c c c f c c 
+        a a f c c c c c c f a a 
+        . . . c c c c c c . . . 
+        . . . a a . . a a . . . 
+        `],
+    500,
+    false
+    )
+    FREDDY.follow(MIKE, 0)
+    BONNIE.follow(MIKE, 0)
+    CHICA.follow(MIKE, 0)
+    FOXY.follow(MIKE, 0)
+})
 let PUT_2 = 0
+let FOXY: Sprite = null
+let BONNIE: Sprite = null
+let CHICA: Sprite = null
+let FREDDY: Sprite = null
+let MIKE: Sprite = null
 let PUT = 0
-let MIKE = sprites.create(img`
+MIKE = sprites.create(img`
     f f f f f f f f f f f f 
     f 8 8 8 8 8 8 8 8 8 8 f 
     f 8 8 8 8 5 5 8 8 8 8 f 
@@ -85,7 +211,7 @@ let HP2 = sprites.create(img`
     c c c c c c c c c c c c c c c . 
     `, SpriteKind.Player)
 tiles.placeOnRandomTile(HP2, assets.tile`myTile7`)
-let FREDDY = sprites.create(img`
+FREDDY = sprites.create(img`
     . . . . . f f . . . . . 
     e e e . . f f . . e e e 
     e 4 e . f f f f . e 4 e 
@@ -143,7 +269,7 @@ let LINE = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Projectile)
 tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
-let CHICA = sprites.create(img`
+CHICA = sprites.create(img`
     . . . f f . . f f . . . 
     . . f 5 5 f f 5 5 f . . 
     . . . f 5 5 5 5 f . . . 
@@ -253,7 +379,7 @@ let LINE_1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Projectile)
 tiles.placeOnRandomTile(LINE_1, assets.tile`myTile18`)
-let BONNIE = sprites.create(img`
+BONNIE = sprites.create(img`
     a a a . . . . . . a a a 
     a c a . . . . . . a c a 
     a c a . . . . . . a c a 
@@ -272,7 +398,7 @@ let BONNIE = sprites.create(img`
     2 2 2 a a f f a a f . . 
     `, SpriteKind.Player)
 tiles.placeOnRandomTile(BONNIE, assets.tile`myTile19`)
-let FOXY = sprites.create(img`
+FOXY = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -292,7 +418,7 @@ let FOXY = sprites.create(img`
     `, SpriteKind.Player)
 tiles.placeOnRandomTile(FOXY, assets.tile`myTile8`)
 let POWER = 100
-info.startCountdown(500)
+info.startCountdown(300)
 forever(function () {
     if (MIKE.tileKindAt(TileDirection.Top, assets.tile`myTile0`)) {
         MIKE.y += 10
@@ -360,9 +486,9 @@ forever(function () {
     BONNIE.follow(LINE_1, 100)
 })
 forever(function () {
-    pause(10000)
-    pause(10000)
-    pause(10000)
+    pause(1000)
+    pause(2000)
+    pause(1000)
     pause(10000)
     animation.runImageAnimation(
     FOXY,
@@ -394,8 +520,8 @@ forever(function () {
     if (FOXY.overlapsWith(DOOR_1)) {
         tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
         FOXY.follow(LINE, 0)
-        FOXY.follow(MIKE, 0)
         tiles.placeOnRandomTile(FOXY, assets.tile`myTile24`)
+        FOXY.follow(MIKE, 0)
     }
     if (FOXY.overlapsWith(DOOR)) {
         tiles.placeOnRandomTile(LINE, assets.tile`myTile16`)
