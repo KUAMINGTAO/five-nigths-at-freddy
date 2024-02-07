@@ -6,6 +6,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile20`, function (sprite, 
 })
 let PUT_2 = 0
 let PUT = 0
+game.showLongText("玩法：如果你坐在椅子上按A你可以看到摄像头，如果你坐在椅子上按B你可以看到你的电源。如果你不在椅子上或外面按A你可以关门A ；按 B，您可以关闭门 B。如果您看到小鸡小鸡，请按 A 关闭门 A；如果您看到兔子邦妮，请按 B 关闭门 B。最后，如果您看到狐狸，请按 A快点关门，快点！！！", DialogLayout.Bottom)
 let MIKE = sprites.create(img`
     f f f f f f f f f f f f 
     f 8 8 8 8 8 8 8 8 8 8 f 
@@ -389,6 +390,10 @@ forever(function () {
     )
     tiles.placeOnRandomTile(FOXY, assets.tile`myTile24`)
     FOXY.follow(LINE, 80)
+})
+forever(function () {
+    scene.cameraFollowSprite(MIKE)
+    controller.moveSprite(MIKE)
 })
 forever(function () {
     if (FOXY.overlapsWith(DOOR_1)) {
