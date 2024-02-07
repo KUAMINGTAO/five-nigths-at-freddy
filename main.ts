@@ -293,7 +293,7 @@ let FOXY = sprites.create(img`
     `, SpriteKind.Player)
 tiles.placeOnRandomTile(FOXY, assets.tile`myTile8`)
 let POWER = 100
-info.startCountdown(500)
+info.startCountdown(300)
 forever(function () {
     if (MIKE.tileKindAt(TileDirection.Top, assets.tile`myTile0`)) {
         MIKE.y += 10
